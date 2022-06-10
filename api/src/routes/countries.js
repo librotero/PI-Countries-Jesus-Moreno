@@ -1,41 +1,63 @@
 const { Router } = require('express');
 const { Country } = require('../db.js')
 const router = Router();
-
-router.get('/', (req, res, next) => {
-    return Country.findAll()
-        .then((Country) => {
-            res.send(countries)
-        })
-})
+const { getAllDb } = require('../util');
 
 router.get('/countries/:id', async(req, res, next) => {
-    const countryIdToUp = req.params.idPais.toUpperCase();
-
+    const { id } = req.params;
     try {
-      const countryFound = await Country.findOne({
-        where: {
-          id: countryIdToUp,
-        },
-        include: {
-          model: Activities,
-          attributes: ['name', 'difficulty', 'duration', 'season'],
-          through: { attributes: [] },
-        },
-      });
-  
-      Object.values(countryFound) && res.status(200).send(countryFound);
+        const countryFound = await Country.findOne({
+            where: {
+                id: id.toUpperCase(),
+            },
+            include: {
+                model: Activity,
+                attributes: ['name', 'difficulty', 'duration', 'season'],
+                through: { attributes: [] },
+            },
+        });
+
+        if (!countryFound) {
+            return res.status(200).send();
+        } else {
+            return res.status(200).send(countryFound);
+        }
     } catch (e) {
-      return res.status(400).json({ message: e });
+        return res.status(400).send(e);
     }
 })
 
-router.put('/', (req, res, next) => {
-    res.send('soy put / characters')
+router.get('/countries', async(req, res, next) => {
+    const { name } = req.query;
+
+    try {
+        const countriesDb = await getAllDb();
+
+        if (!name) {
+            return res.status(200).send(countriesDb);
+        } else {
+            const nameToSearch = await Country.findAll({
+                where: {
+                    name: {
+                        [Op.iLike]: `%${name}%`
+                    },
+                },
+                include: {
+                    model: Activity,
+                    attributes: ['name', 'difficulty', 'duration', 'season'],
+                    through: { attributes: [] },
+                },
+            });
+            if (nameToSearch === 0) {
+                return res.status(200).send();
+            } else {
+                return res.status(200).send(nameToSearch);
+            }
+        }
+    } catch (e) {
+        return res.status(400).send(e);
+    }
 })
 
-router.delete('/', (req, res, next) => {
-    res.send('soy delete / characters')
-})
 
 module.exports = router;

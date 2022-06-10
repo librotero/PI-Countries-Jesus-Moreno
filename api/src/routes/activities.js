@@ -1,20 +1,35 @@
 const { Router } = require('express');
 const router = Router();
+const { Activity } = require('../db');
 
-router.get('/', (req, res, next) => {
-    res.send('soy Get / activities')
+router.get('/activities', async(req, res, next) => {
+    try {
+        const activity = await Activity.findAll();
+        res.status(200).send(activity);
+    } catch (e) {
+        res.status(400).send(e);
+    }
 })
 
-router.post('/', (req, res, next) => {
-    res.send('soy post / activities')
+router.post('/activities', async(req, res, next) => {
+    const {
+        name,
+        difficulty,
+        duration,
+        season,
+    } = req.body;
+    try {
+        const activity = await Activity.create({
+            name,
+            difficulty,
+            duration,
+            season,
+        });
+        res.status(201).send(activity);
+    } catch (e) {
+        res.status(400).send(e);
+    }
 })
 
-router.put('/', (req, res, next) => {
-    res.send('soy put / activities')
-})
-
-router.delete('/', (req, res, next) => {
-    res.send('soy delete / activities')
-})
 
 module.exports = router;
