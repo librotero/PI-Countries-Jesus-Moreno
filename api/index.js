@@ -1,3 +1,6 @@
+
+
+
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -19,17 +22,10 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-const { getAllApi } = require('./src/util');
+
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-    server.listen(3001, async() => {
-        try {
-            await getAllApi();
-            console.log('%s listening at 3001'); // eslint-disable-line no-console
-            console.log('countris cargados')
-        } catch (e) {
-            console.log(e);
-        }
-
-    });
+  server.listen(3001, () => {
+    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  });
 });
