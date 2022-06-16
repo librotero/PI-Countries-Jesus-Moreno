@@ -13,3 +13,21 @@ export function getCountries() {
             });
     }
 }
+export function getSearchName(name) {
+
+    return async function(dispatch) {
+
+        var res = await axios.get(`http://localhost:3001/countries?name=${name}`);
+        
+        return dispatch({
+            type: 'GET_NAME_COUNTRY',
+            payload: res.data
+        })
+    }
+}
+export function getContinent(payload){
+    return { 
+        type: 'GET_CONTINENT',
+        payload
+    }
+}

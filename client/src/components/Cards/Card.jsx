@@ -12,9 +12,8 @@ function Card({ idx, img, id, name, continent }) {
             src={img}
             width="250"/>
           </Link>
-          <h2>{id}</h2>
-          <h2>{name}</h2>
-          <h2>{continent}</h2>
+          <h3>{name}</h3>
+          <h5>{continent}</h5>
         </div>
       </div>
     );

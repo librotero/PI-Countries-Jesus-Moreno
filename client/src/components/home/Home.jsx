@@ -3,8 +3,15 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cards from '../Cards/Cards';
 import { getCountries } from './../../Redux/actions/index';
+import s from './Home.module.scss'
+import SearchBar from '../SearchBar/SearchBar'
+import Pagination from '../Pagination/Pagination';
+import Filter from '../Filters/Filter';
 
 const Home = () => {
+  const pagination = (pageNumber) => {
+    setCurrentPage(pageNumber)
+}
   const dispatch = useDispatch()
 
     const allCountries = useSelector((state) => state.countries)
@@ -21,9 +28,26 @@ console.log(currentCountry.name)
       dispatch(getCountries())
   },[dispatch])
   return (
-    <div className="">
-    <h2>Hola</h2>
+    <div>
+    
+    <h1>Countries</h1>
+    <div>
+    <SearchBar/>
+    </div>
+    <div className={s.home}>
+      <div className={s.sectionFilters}>
+      <Filter/>
+      </div>
+      <div className={s.sectionCards}>
       <Cards countries={currentCountry}/>
+      </div>
+    </div>
+    <div>
+    
+    </div>
+   <div>
+   <Pagination countriesPerPage={countriesPerPage} allCountries={allCountries.length} pagination={pagination}/>
+   </div>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { Country, Activity, country_activity } = require('../db')
+const { Country, Activity, country_activity,Op} = require('../db')
 const axios = require('axios');
 
 
@@ -31,47 +31,19 @@ const getDataApi = async () => {
 
 //BUSCAR EN BD NOMBRE O TODA LA DB(si hay o no bd creada)
 counrtyRouter.get('/', async (req, res) =>{
-
-    const {name} = req.query
-    const paisesBd = await Country.findAll()
-
-    try {
-
-        if(!paisesBd.length) {
-
-            let infoCountries = await getDataApi()
-            await Country.bulkCreate(infoCountries)
-            const paisesBd = await Country.findAll()
-
-            if (name) {
-                let countriesName = paisesBd.find(e => e.name.toLowerCase() === name.toLowerCase());
-                if(countriesName === undefined) {
-                    return res.status(404).send('No encontrado')
-                } else {
-                    return res.json(countriesName) 
-                }
-            } else {
-                return res.json(paisesBd) 
-            }
-
-        } else {
-
-            if (name) {
-                let countriesName = paisesBd.find(e => e.name.toLowerCase() === name.toLowerCase());
-                if(countriesName === undefined) {
-                    return res.status(404).send('No encontrado2')
-                } else {
-                    return res.json(countriesName) 
-                }
-            } else {
-                return res.json(paisesBd) 
-            }
-
-        }
-
-    } catch (error) {
-        console.log(error)
+    const name = req.query.name;
+    const dataApi = await getDataApi()
+    const dataDb = await Country.findAll()
+    const data = dataDb.concat(dataApi)
+    
+    if (name){
+        let namen = data.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
+        res.json(namen)
+    }else{
+        
+    res.json(data)
     }
+    
 })
 
 

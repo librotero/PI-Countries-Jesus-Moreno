@@ -14,7 +14,7 @@ const Cards = ({countries}) => {
           img={c.flags}
           id={c.id}
           name={c.name}
-          continent={c.continent}
+          continent={c.continents}
         />
       ))}
   </ul>
