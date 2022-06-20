@@ -7,7 +7,7 @@ const Inicio = () => {
         <img src={"https://f.vividscreen.info/soft/9bab90bb116f211eeac7dfd184e2575d/Travel-1920x1080.jpg"} alt="" width="100%" />
         <div >
         <button className={s.buton}>
-        <Link style={{"textDecoration":"none", "color": "white"}} to ={"/inicio"}>Welcome
+        <Link style={{"textDecoration":"none", "color": "white"}} to ={"/home"}>Welcome
         </Link> 
         </button>
         </div> 

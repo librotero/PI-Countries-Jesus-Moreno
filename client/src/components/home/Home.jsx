@@ -7,7 +7,7 @@ import s from './Home.module.scss'
 import SearchBar from '../SearchBar/SearchBar'
 import Pagination from '../Pagination/Pagination';
 import Filter from '../Filters/Filter';
-
+import Order from '../order/Order';
 const Home = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -23,16 +23,27 @@ const Home = () => {
     const indexOfFirstCountry =  indexOfLastCountry - countriesPerPage //// primer countri en 0 (10 - 10)
 
     const currentCountry = Array.isArray(allCountries) && allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+    const changePage =(pageNumber) => {
+        setCurrentPage(pageNumber)
+        pageNumber>=2 ? setCountriesPerPage(10): setCountriesPerPage(9)
+    }
 console.log(currentCountry.name)
     useEffect(() => {
       dispatch(getCountries())
   },[dispatch])
+  useEffect(() => {
+    changePage(currentPage)
+  },[currentPage])
+  
   return (
     <div>
     
     <h1>Countries</h1>
     <div>
     <SearchBar/>
+    </div>
+    <div>
+    <Order setCurrentPage={setCurrentPage} setOrden={setOrden}/>
     </div>
     <div className={s.home}>
       <div className={s.sectionFilters}>

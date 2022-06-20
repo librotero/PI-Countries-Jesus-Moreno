@@ -1,6 +1,5 @@
-
 const { Router } = require('express');
-const { Country, Activity, country_activity } = require('../db')
+const { Country, Activity} = require('../db')
 const axios = require('axios');
 
 
@@ -21,7 +20,7 @@ activityRouter.post("/", async (req, res) => {
 
     try {
 
-        let {name, dificultad, duracion, temporada, idPais} = req.body
+        let {name, dificultad, duracion, temporada, countries} = req.body
 
         const createActividad = await Activity.create({
             name,
@@ -29,13 +28,16 @@ activityRouter.post("/", async (req, res) => {
             duracion,
             temporada
         });
-    
-        await createActividad.setCountries(idPais); 
-    
-        res.status(200).json({ mesage: 'Se creo', createActividad });
-    
-    } catch (error) {
-        console.log(error);
+        const newcountry = await Country.findAll({
+            where: {
+                id: countries  
+            }
+        })
+        await createActividad.addCountry(newcountry)
+        return res.status(201).json(createActividad);
+    }
+    catch (error) {
+        return res.status(500).json(error);
     }
 })
 
