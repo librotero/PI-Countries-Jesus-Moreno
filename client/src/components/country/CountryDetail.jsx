@@ -17,9 +17,23 @@ function CountryDetail(){
       ])
 
     const countryDetail = useSelector((state)=> state.detail);
-    console.log(countryDetail);
     return (
         <div className={styles.container}>
+        <div className={styles.nav}>
+        <div className={styles.item}>
+          <Link
+            style={{ "text-decoration": "none", color: "white" }}
+            to="/home"
+          >
+            <button>Countries</button>
+          </Link>
+        </div>
+        <div className={styles.item}>
+          <Link style={{ "text-decoration": "none" }} to="/activities">
+            <button>Activities</button>
+          </Link>
+        </div>
+      </div>
         <h1>{countryDetail.name}</h1>
         <div className={styles.containerItem}>
         <div className={styles.itemImg}>
@@ -34,6 +48,23 @@ function CountryDetail(){
         </div>
         </div>
         <div>
+       <h1>Activities</h1>
+      <div className={styles.activities}>
+      {
+        countryDetail.activities?
+        countryDetail.activities.map((el,index)=>{
+            return (
+                <div className={styles.activity} key={index}>
+                <h3>{el.name}</h3>
+                <p>Dificultad: {el.dificultad}</p>
+                <p>Teporada: {el.temporada}</p>
+
+                </div>
+            )
+        }
+        ):<div className={styles.activity}>No hay nada</div>
+    }
+      </div>
         </div>
         </div>
     );

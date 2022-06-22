@@ -3,11 +3,13 @@ import Card from './Card'
 import s from './Card.module.scss'
 
 const Cards = ({countries}) => {
+  console.log('hola',countries)
   return (
     <div>
     <ul className={s.cards}>
     {countries.length > 0 &&
       countries.map((c, idx) => (
+        
         <Card
           key={idx}
           idx={idx}

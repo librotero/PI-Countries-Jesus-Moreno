@@ -3,14 +3,16 @@
     align-items: end;
     display: flex;
     justify-content: end;
+    margin-bottom:20px; 
+
 }
 .input
 {
     margin-right: 55px;
     width: 400px;
     height: 30px;
-    border-radius: 20px;
+    border-radius: 1    px;
     border: none;
-    background-color: #c7c7c6;
+    background-color: #ffffff;
     padding-left: 20px;
 }

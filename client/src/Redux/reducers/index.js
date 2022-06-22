@@ -43,7 +43,8 @@ function countriesReducer(state = initialState, action) {
       const filterByActivity =
         action.payload === "All"
           ? copia
-          : acti.filter((el) => el.activity === action.payload);
+          : acti.filter((a) => a.name === action.payload)[0]
+          .countries.map((e) => e);
 
       return {
         ...state,

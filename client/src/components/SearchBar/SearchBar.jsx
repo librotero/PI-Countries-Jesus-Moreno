@@ -16,9 +16,6 @@ export default function SearchBar() {
     useEffect(() => {
         dispatch(getSearchName(name))
     },[dispatch, name])
-    function handleSubmit(e) {
-        e.preventDefault();
-    }
 
     return (
         <div className={styles.container}>

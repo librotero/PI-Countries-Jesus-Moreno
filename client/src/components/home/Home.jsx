@@ -5,6 +5,8 @@ import Cards from '../Cards/Cards';
 import { getCountries } from './../../Redux/actions/index';
 import s from './Home.module.scss'
 import SearchBar from '../SearchBar/SearchBar'
+import NavBar from '../NavBar/NavBar'
+
 import Pagination from '../Pagination/Pagination';
 import Filter from '../Filters/Filter';
 import Order from '../order/Order';
@@ -37,13 +39,9 @@ console.log(currentCountry.name)
   
   return (
     <div>
-    
-    <h1>Countries</h1>
+    <NavBar setCurrentPage={setCurrentPage} setOrden={setOrden}/>
+  
     <div>
-    <SearchBar/>
-    </div>
-    <div>
-    <Order setCurrentPage={setCurrentPage} setOrden={setOrden}/>
     </div>
     <div className={s.home}>
       <div className={s.sectionFilters}>
@@ -58,6 +56,9 @@ console.log(currentCountry.name)
     </div>
    <div>
    <Pagination countriesPerPage={countriesPerPage} allCountries={allCountries.length} pagination={pagination}/>
+   </div>
+   <div className={s.footer}>
+   By Jesus Moreno 2022
    </div>
     </div>
   )

@@ -5,7 +5,6 @@
     display: flex;
     justify-content: start;
     flex-wrap: wrap;
-    margin: 20px;
     button
 {
     background-color: rgb(0, 162, 255);
@@ -16,7 +15,6 @@
     text-align: center;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    width: 80px;
     height: 40px;
     align-items: center;
     justify-content: center;
@@ -35,11 +33,52 @@
 }
 .container{
     margin-top: 60px;
-    border: 1px solid #c7c7c6;
-    border-radius: 20px;
-    width: 250px;
-    height: 400px;
+    border-bottom: 3px solid rgb(0, 162, 255);
+    width: 350px;
+    height: 600px;
     align-items: start;
     display: inline-block;
     justify-content: center;
+}
+.buttonActivity
+{
+    background-color: rgb(0, 162, 255);
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    height: 40px;
+    align-items: start;
+    justify-content: start;
+    margin:5px;
+    cursor: pointer;
+    &:hover
+    {
+        background-color: rgb(0, 122, 193);
+        color: rgb(255, 255, 255);
+    }
+    &:focus{
+        background-color: rgb(250, 202, 9);
+        color: rgb(255, 255, 255);
+    }   
+}
+.buttonAdd{
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    height: 30px;
+    padding: 5px;
+    margin: 20px;
+}
+.containerFilterActivity{
+    display: block;
+}
+.containerButtonActivity
+{
+    display: flex;
+    flex-wrap: wrap;
 }

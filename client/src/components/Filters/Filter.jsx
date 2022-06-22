@@ -40,18 +40,21 @@ const Filter = () => {
 
         </div>
         </div>
-        <div>
+        <div className={styles.containerFilterActivity}>
         <h5>Activities</h5>
+       
+        <div className={styles.containerButtonActivity}>
         {
             activities.map((el,i) => {
                 return(
-                    <button key={i} onClick={e => handleFilterActivities(el.name)}>{el.name}</button> 
+                    <button className={styles.buttonActivity} key={i} onClick={e => handleFilterActivities(el.name)}>{el.name}</button> 
                 )
 
         }
         )}
+        </div>
         <Link to="/newactivity">
-        <button>add activities</button>
+        <button className={styles.buttonAdd}>+ add activities</button>
         </Link>
         </div>
         </div>
