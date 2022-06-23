@@ -26,8 +26,11 @@ module.exports = (sequelize) => {
     },
     
     duracion: {
-      type: DataTypes.TIME,
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1,
+        max: 12,
+      },
     },
 
     temporada: {

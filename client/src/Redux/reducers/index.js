@@ -105,6 +105,7 @@ function countriesReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+      
     default:
       return state;
   }

@@ -32,6 +32,7 @@ export function getContinent(payload){
     }
 }
 
+
 //activities
 export function postActivity(payload){
     return async function (dispatch) {

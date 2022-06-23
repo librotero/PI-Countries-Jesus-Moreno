@@ -10,13 +10,15 @@ import styles from './CountryDetail.module.scss'
 function CountryDetail(){
     const {id} = useParams();
     const dispatch = useDispatch();
+    
     useEffect(()=> {
         dispatch(getDetails(id));
+    
       },[
         dispatch,
       ])
-
     const countryDetail = useSelector((state)=> state.detail);
+    console.log(countryDetail);
     return (
         <div className={styles.container}>
         <div className={styles.nav}>
@@ -51,7 +53,7 @@ function CountryDetail(){
        <h1>Activities</h1>
       <div className={styles.activities}>
       {
-        countryDetail.activities?
+        countryDetail.activities>0?
         countryDetail.activities.map((el,index)=>{
             return (
                 <div className={styles.activity} key={index}>
