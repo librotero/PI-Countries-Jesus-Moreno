@@ -82,3 +82,155 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 390px) {
+   
+.containerButtons
+{
+    align-items: start;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+    button
+{
+    background-color: rgb(0, 162, 255);
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    margin:5px;
+    cursor: pointer;
+    &:hover
+    {
+        background-color: rgb(0, 122, 193);
+        color: rgb(255, 255, 255);
+    }
+    &:focus{
+        background-color: rgb(250, 202, 9);
+        color: rgb(255, 255, 255);
+    }
+}
+}
+.container{
+    margin-top: 60px;
+    border-bottom: 3px solid rgb(0, 162, 255);
+    width: 350px;
+    height: 600px;
+    align-items: start;
+    display: inline-block;
+    justify-content: center;
+}
+.buttonActivity
+{
+    background-color: rgb(0, 162, 255);
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    height: 40px;
+    align-items: start;
+    justify-content: start;
+    margin:5px;
+    cursor: pointer;
+    &:hover
+    {
+        background-color: rgb(0, 122, 193);
+        color: rgb(255, 255, 255);
+    }
+    &:focus{
+        background-color: rgb(250, 202, 9);
+        color: rgb(255, 255, 255);
+    }   
+}
+.buttonAdd{
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 2px;
+    height: 30px;
+    padding: 5px;
+    margin: 20px;
+}
+.containerFilterActivity{
+    display: block;
+}
+.containerButtonActivity
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+    
+/* Simple reset & Demo styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #F5F5F5;
+    color: #222;
+}
+
+.container {
+  width: 800px;
+  margin: 100px auto;
+}
+
+.container header {text-align: center;}
+
+.container .span {
+  float: left;
+  width: 45%;
+  padding: 2%;
+}
+
+/* Accordeon styling */
+.accordeon {}
+
+.accordeon label {
+    display: block;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 1.5em;
+    background-color:rgb(0, 162, 255);
+    color: white;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordeon label:hover {
+	background: navy;
+}
+
+.accordeon .panel {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    background: white;
+    color: black;
+}
+
+/* Hide checkboxes and radio-buttons */
+.accordeon input[type="radio"], .accordeon input[type="checkbox"] {
+    display: none;
+}
+/* Show .panel for corresponding to checked radio or checkbox */
+.accordeon input[type="radio"]:checked + .panel, .accordeon input[type="checkbox"]:checked + .panel {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    padding: 1.5em;
+}
+}

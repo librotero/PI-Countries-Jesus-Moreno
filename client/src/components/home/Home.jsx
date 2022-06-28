@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Cards from '../Cards/Cards';
 import { getCountries } from './../../Redux/actions/index';
 import s from './Home.module.scss'
-import SearchBar from '../SearchBar/SearchBar'
+import Footer from '../Footer/Footer'
 import NavBar from '../NavBar/NavBar'
 
 import Pagination from '../Pagination/Pagination';
@@ -23,7 +23,7 @@ const Home = () => {
     const [countriesPerPage, setCountriesPerPage] = useState(10) //La pagina tiene 10 x Pagina
     const indexOfLastCountry = currentPage * countriesPerPage // ultimo countri en 10 (1 x 10)
     const indexOfFirstCountry =  indexOfLastCountry - countriesPerPage //// primer countri en 0 (10 - 10)
-
+  
     const currentCountry = Array.isArray(allCountries) && allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
     const changePage =(pageNumber) => {
         setCurrentPage(pageNumber)
@@ -57,9 +57,7 @@ console.log(currentCountry.name)
    <div>
    <Pagination countriesPerPage={countriesPerPage} allCountries={allCountries.length} pagination={pagination}/>
    </div>
-   <div className={s.footer}>
-   By Jesus Moreno 2022
-   </div>
+  <Footer/>
     </div>
   )
 }

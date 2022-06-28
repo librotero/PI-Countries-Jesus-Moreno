@@ -22,10 +22,14 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
+const {getDataApi}=require('./src/routes/countries.js')
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
+  server.listen(3001, async() => {
+    const db = await getDataApi();
+    if(db.length>0){
+      console.log('La base de datos esta llena');
+    }
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });

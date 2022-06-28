@@ -7,15 +7,18 @@ function Card({ idx, img, id, name, continent }) {
       <div className={s.card}>
         <div key={idx}>
           <div className={s.image}>
+            <div>
+            <h3>{name}</h3>
+            <p>{continent}</p>
+            </div>
           <Link to={`/countries/${id}`}>
             <img
             alt="flag from country"
             src={img}
+            className={s.desvanecer}
             width="240"/>
           </Link>
           </div>
-          <h3>{name}</h3>
-          <h5>{continent}</h5>
         </div>
       </div>
     );

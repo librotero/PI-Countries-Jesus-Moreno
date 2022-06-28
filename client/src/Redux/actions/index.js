@@ -92,3 +92,8 @@ export function getDetails(id) {
         }
     }
 }
+export function clearDetails(){
+    return {
+        type: 'CLEAR_DETAILS'
+    }
+}

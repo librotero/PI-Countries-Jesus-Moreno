@@ -3,6 +3,7 @@ import { useState, useEffect} from "react";
 import { useDispatch } from "react-redux";
 import {getSearchName} from "../../Redux/actions/index";
 import styles from "./SearchBar.module.scss";
+import {BsSearch} from "react-icons/bs";
 
  
 export default function SearchBar() {
@@ -21,6 +22,9 @@ export default function SearchBar() {
         <div className={styles.container}>
             <input className={styles.input} type='text' placeholder='Escriba su el pais'
             onChange={e => handleInputChange(e)}></input>
+            <div className={styles.lupita}>
+            <BsSearch/>
+            </div>
         </div>
     )
 }

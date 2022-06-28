@@ -50,10 +50,14 @@ const NewActivity = () => {
   }
 
   function handleSelect(e) {
+    if(input.countries.includes(e.target.value)){
+alert("este pais ya existe")
+    }else{
     setInput({
       ...input,
       countries: [...input.countries, e.target.value],
     });
+  }
   }
 
   
@@ -166,6 +170,7 @@ const NewActivity = () => {
           </option>
           {countries.map((e) => (
             <option value={e.id}>{e.name}</option>
+
           ))}
         </select>
         {errors.countries && <p>{errors.countries}</p>}
@@ -174,7 +179,7 @@ const NewActivity = () => {
                 {input.countries.map((e) => (
                   
                     <button type="button">
-                      {e} 
+                      {e.imagen} 
                     </button>
                 ))}
               </div>

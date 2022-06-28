@@ -77,7 +77,6 @@ counrtyRouter.get("/", async (req, res) => {
 counrtyRouter.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const dataApi = await getDataApi();
     const dataDb = await Country.findByPk(id.toUpperCase(), {
       include: {
         model: Activity,
@@ -89,4 +88,4 @@ counrtyRouter.get("/:id", async (req, res) => {
   }
 });
 
-module.exports = counrtyRouter;
+module.exports ={counrtyRouter, getDataApi};

@@ -10,21 +10,20 @@ const NavBar = ({ setCurrentPage, setOrden }) => {
       <div className={style.nav}>
         <div className={style.item}>
           <Link
-            style={{ "text-decoration": "none", color: "white" }}
-            to="/home"
+            
+            to="/activities"
           >
-            <button>Countries</button>
+            <button>Activities</button>
           </Link>
         </div>
         <div className={style.item}>
-          <Link style={{ "text-decoration": "none" }} to="/activities">
-            <button>Activities</button>
-          </Link>
+          
         </div>
       </div>
      
       <div className={style.searchbar}>
-        <h1 className={style.item}>Countries</h1>
+        <div className={style.item}>
+        <img src={"https://europe.wordcamp.org/2022/files/2022/02/wceu2022-sponsor-ionos.png"} width="150"/></div>
         <div className={style.itemSearch}>
           <SearchBar />
         </div>

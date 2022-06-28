@@ -4,7 +4,21 @@
     display: flex;
     justify-content: end;
     margin-bottom:20px; 
-
+    position: relative;
+    .lupita{
+        position: absolute;
+        top: 5px;
+        right: 60px;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
 }
 .input
 {
@@ -15,4 +29,16 @@
     border: none;
     background-color: #ffffff;
     padding-left: 20px;
+    border-radius: 10px;
 }
+@media screen and (max-width: 390px) {
+    .input
+    {
+        width: 400px;
+        height: 30px;
+        border: none;
+        background-color: #000000;
+        border-radius: 10px;
+        margin-right: 0px;
+    }
+  }

@@ -5,6 +5,7 @@ import {useDispatch,useSelector} from 'react-redux';
 import {getContinent} from '../../Redux/actions/index';
 import {Link} from 'react-router-dom';
 import {getAllActivities, byActivities} from '../../Redux/actions/index';
+import {FaFilter} from 'react-icons/fa'
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,12 @@ const Filter = () => {
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.span}>
+       
+        <div className={`${styles.accordeon} ${styles.check}`}>
+		<label for="panel1"><FaFilter/></label>
+		<input id="panel1" type="checkbox" />
+		<div className={styles.panel}>
         <div>
         <h5>Continents</h5>
         <div className={styles.containerButtons}>
@@ -57,7 +63,10 @@ const Filter = () => {
         <button className={styles.buttonAdd}>+ add activities</button>
         </Link>
         </div>
+		</div>
         </div>
+        </div>
+
     )
     }
     

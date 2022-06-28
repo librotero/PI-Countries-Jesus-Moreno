@@ -105,6 +105,11 @@ function countriesReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+      case "CLEAR_DETAILS":
+      return {
+        ...state,
+        detail: {},
+      };
       
     default:
       return state;

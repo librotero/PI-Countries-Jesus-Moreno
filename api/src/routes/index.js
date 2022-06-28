@@ -2,7 +2,7 @@ const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-const counrtyRouter = require('./countries.js')
+const {counrtyRouter} = require('./countries.js')
 const activityRouter = require('./activities.js')
 
 const router = Router();
