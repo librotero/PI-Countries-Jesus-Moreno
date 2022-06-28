@@ -16,21 +16,21 @@ const NavBar = ({ setCurrentPage, setOrden }) => {
             <button>Activities</button>
           </Link>
         </div>
-        <div className={style.item}>
-          
-        </div>
       </div>
      
       <div className={style.searchbar}>
-        <div className={style.item}>
-        <img src={"https://europe.wordcamp.org/2022/files/2022/02/wceu2022-sponsor-ionos.png"} width="150"/></div>
+      <div className={style.item}>
+      <h1>
+      Countries
+      </h1>
+      </div>
         <div className={style.itemSearch}>
           <SearchBar />
         </div>
         <h3>Encuentra tu destino hoy</h3>
       </div>
      
-      <div>
+      <div className={style.order}>
         <Order setCurrentPage={setCurrentPage} setOrden={setOrden} />
       </div>
     </div>

@@ -34,11 +34,35 @@
 @media screen and (max-width: 390px) {
     .input
     {
-        width: 400px;
+        width: 300px;
         height: 30px;
         border: none;
-        background-color: #000000;
+        background-color:white;
         border-radius: 10px;
         margin-right: 0px;
+        padding-left: 10px;
+        justify-content: center;
     }
+    .container
+{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom:20px; 
+    position: relative;
+    .lupita{
+        position: absolute;
+        top: 5px;
+        right: 30px;
+        width: 30px;
+        height: 30px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
   }

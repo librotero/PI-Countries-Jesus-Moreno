@@ -9,7 +9,6 @@ import NavBar from '../NavBar/NavBar'
 
 import Pagination from '../Pagination/Pagination';
 import Filter from '../Filters/Filter';
-import Order from '../order/Order';
 const Home = () => {
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber)
@@ -19,6 +18,7 @@ const Home = () => {
     const allCountries = useSelector((state) => state.countries)
 
     const [orden, setOrden] = useState('')
+    console.log(orden)
     const [currentPage, setCurrentPage] = useState(1) //La pagina empieza en la 1
     const [countriesPerPage, setCountriesPerPage] = useState(10) //La pagina tiene 10 x Pagina
     const indexOfLastCountry = currentPage * countriesPerPage // ultimo countri en 10 (1 x 10)

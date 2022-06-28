@@ -6,6 +6,7 @@ import {getContinent} from '../../Redux/actions/index';
 import {Link} from 'react-router-dom';
 import {getAllActivities, byActivities} from '../../Redux/actions/index';
 import {FaFilter} from 'react-icons/fa'
+import Order from '../order/Order'
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,9 @@ const Filter = () => {
         <div className={styles.span}>
        
         <div className={`${styles.accordeon} ${styles.check}`}>
+        <div className={styles.Order}>
+       <Order/>
+       </div>
 		<label for="panel1"><FaFilter/></label>
 		<input id="panel1" type="checkbox" />
 		<div className={styles.panel}>
